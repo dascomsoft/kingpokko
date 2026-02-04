@@ -1,0 +1,86 @@
+
+@import "tailwindcss";
+
+/* Custom theme */
+@theme {
+  --color-club-gold: #FFD700;
+  --color-club-white: #FFFFFF;
+  --color-club-black: #000000;
+  
+  --animate-fade-in: fadeIn 1s ease-in-out;
+  --animate-slide-up: slideUp 0.8s ease-out;
+  --animate-pulse-gold: pulseGold 2s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 20s linear infinite;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes pulseGold {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* Base styles */
+@layer base {
+  :root {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  }
+}
+
+/* Component styles */
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(90deg, var(--color-club-gold) 0%, #FFED4E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glow {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-club-gold), #FFED4E);
+  border-radius: 5px;
+}
